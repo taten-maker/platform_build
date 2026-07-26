@@ -165,6 +165,13 @@ ifndef PLATFORM_VERSION
 endif
 .KATI_READONLY := PLATFORM_VERSION
 
+# CipherOS: override the AOSP display version with our own branding string.
+# This is what surfaces in Settings > About phone and in
+# ro.build.version.release_or_display_version. Set before the upstream
+# ifndef block so the default assignment is skipped and the value is
+# locked in by the .KATI_READONLY below.
+PLATFORM_DISPLAY_VERSION := CipherOS 1.0
+
 ifndef PLATFORM_DISPLAY_VERSION
   PLATFORM_DISPLAY_VERSION := $(PLATFORM_VERSION)
 endif
